@@ -45,7 +45,7 @@ just_product_category.show(n=50)
 
 # Question 7: Find the most helpful review in the dataframe - the one with the highest number of helpful votes.
 # What is the product title for that review? How many helpful votes did it have?
-most_helpful = spark.sql("SELECT product_title, helpful_votes from reviews ORDER BY helpful_votes desc LIMIT 1")
+most_helpful = spark.sql("SELECT product_title, cast(helpful_votes as int) from reviews ORDER BY helpful_votes desc LIMIT 1")
 most_helpful.show(truncate=False)
 
 # Question 8: How many reviews exist in the dataframe with a 5 star rating?
