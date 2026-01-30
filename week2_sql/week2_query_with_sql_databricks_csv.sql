@@ -8,13 +8,13 @@
 -- MAGIC ## Question 1
 -- MAGIC Read the CSV file into a view called "reviews".
 -- MAGIC
--- MAGIC The file should be uploaded to: Workspace > your user folder > reviews.csv
+-- MAGIC The file should be uploaded to the Volume: /Volumes/shared/data/csv/
 
 -- COMMAND ----------
 
 CREATE OR REPLACE TEMP VIEW reviews AS
 SELECT * FROM read_files(
-  '/Workspace/Users/${current_user()}/reviews.csv',
+  '/Volumes/shared/data/csv/reviews.csv',
   format => 'csv',
   header => true,
   delimiter => '\t'
